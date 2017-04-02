@@ -30,12 +30,12 @@ public class AppContext extends Application {
         onScreenOffReceiver = new OnScreenOffReceiver();
         registerReceiver(onScreenOffReceiver, filter);
     }
-
+   // @SuppressWarnings("deprecation")
     public PowerManager.WakeLock getWakeLock() {
         if(wakeLock == null) {
             // lazy loading: first call, create wakeLock via PowerManager.
             PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-            wakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "wakeup");
+            wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "wakeup");
         }
         return wakeLock;
     }
