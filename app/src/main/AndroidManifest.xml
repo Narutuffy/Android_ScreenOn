@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vamsi.screenon">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
+        android:name=".AppContext"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,13 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".ScreenOnReceiver">
+        <receiver android:name=".OnScreenOffReceiver">
             <intent-filter>
             <action android:name="com.vamsi.CUSTOM_INTENT">
                 </action>
             </intent-filter>
         </receiver>
-
     </application>
+
 
 </manifest>
